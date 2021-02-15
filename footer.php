@@ -1,9 +1,7 @@
 <?php
-/** Index Template File 
+/** Footer Template File 
  * @package PizzaShop
  */
-
-    get_header();
 ?>
 
     <div class="container file-name">
@@ -12,5 +10,5 @@
         </span>
     </div>
 
-<?php 
-    get_footer();
+</body>
+</html>
