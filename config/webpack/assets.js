@@ -1,6 +1,6 @@
 const 
     cssFiles = [
-        'normalize.css/normalize.css'
+        'normalize.css/normalize.css',
     ],
     jsFiles = [];
 

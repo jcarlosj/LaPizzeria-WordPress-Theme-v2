@@ -6,6 +6,7 @@
   "scripts": {
     "prod": "cross-env NODE_ENV=production webpack --mode production --progress",
     "dev": "cross-env NODE_ENV=development webpack --watch --mode development --progress",
+    "clean": "npm run clean:src; npm run clean:build",
     "clean:build": "rm -rf ./build/* ./assets/build/* ",
     "clean:src": "rm -rf ./assets/src/css/* ",
     "svg": "svgr -d ./assets/src/js/icons ./assets/src/icons",
@@ -30,7 +31,6 @@
     "@wordpress/dependency-extraction-webpack-plugin": "^3.0.1",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^7.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.2",
     "cssnano": "^4.1.10",
