@@ -5,7 +5,8 @@ const
     OptimizeCssAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' ),
     cssnano = require( 'cssnano' ), // https://cssnano.co/
     UglyfyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' ),
-    DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
+    DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' ),
+    CopyPlugin = require( 'copy-webpack-plugin' );
 
 //  Rutas de archivos
 const 
@@ -65,6 +66,11 @@ const plugins = ( argv ) => [
     new DependencyExtractionWebpackPlugin({
         injectPolyfill: true,       //  Forza que wp-polyfill se incluya en la lista de dependencias de cada punto de entrada. Esto sería lo mismo que agregar la importación '@wordpress/polyfill'; a cada punto de entrada.
         combineAssets: true         //  Crea un archivo de activos para cada punto de entrada. Cuando esta marca se establece en verdadero, toda la información sobre los activos se combina en un solo archivo assets. (Json | php) generado en el directorio de salida (Ejecute: npm run prod & npm run dev)
+    }),
+    new CopyPlugin({
+        patterns: [
+            { from: './node_modules/normalize.css/normalize.css', to: './css/normalize.css' },
+        ],
     })
 ];
 
