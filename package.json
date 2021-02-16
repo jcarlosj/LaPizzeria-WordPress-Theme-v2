@@ -6,7 +6,8 @@
   "scripts": {
     "prod": "cross-env NODE_ENV=production webpack --mode production --progress",
     "dev": "cross-env NODE_ENV=development webpack --watch --mode development --progress",
-    "clean": "rm -rf ./build/* ./assets/build/*",
+    "clean:build": "rm -rf ./build/* ./assets/build/* ",
+    "clean:src": "rm -rf ./assets/src/css/* ",
     "svg": "svgr -d ./assets/src/js/icons ./assets/src/icons",
     "lint": "eslint ./assets/src/js/*",
     "lint:fix": "eslint --fix ./assets/src/js/*",

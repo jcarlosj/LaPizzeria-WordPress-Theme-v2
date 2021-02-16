@@ -8,6 +8,8 @@ const
     DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' ),
     CopyPlugin = require( 'copy-webpack-plugin' );
 
+const Assets = require( './config/webpack/assets' );
+
 //  Rutas de archivos
 const 
     JS = path .resolve( __dirname + '/assets/src/js' ),
@@ -60,17 +62,20 @@ const plugins = ( argv ) => [
     new CleanWebpackPlugin( {
         cleanStaleWebpackAssets: ( 'production' === argv .mode  )    //  Elimina automáticamente todos los activos de paquete web no utilizados en la reconstrucción, cuando se establece en verdadero en producción. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
     } ), 
+    new CopyPlugin({
+        patterns: Assets .map( asset => {       //  Itera todos los assets que requieran ser copiados
+            return {
+                from: path .join( __dirname, `/node_modules/${ asset }` ),
+                to: path .join( __dirname, `/assets/src/css` )
+            }
+        })
+    }),
     new MiniCssExtractPlugin( {
         filename: 'css/[name].css'
     } ),
     new DependencyExtractionWebpackPlugin({
         injectPolyfill: true,       //  Forza que wp-polyfill se incluya en la lista de dependencias de cada punto de entrada. Esto sería lo mismo que agregar la importación '@wordpress/polyfill'; a cada punto de entrada.
         combineAssets: true         //  Crea un archivo de activos para cada punto de entrada. Cuando esta marca se establece en verdadero, toda la información sobre los activos se combina en un solo archivo assets. (Json | php) generado en el directorio de salida (Ejecute: npm run prod & npm run dev)
-    }),
-    new CopyPlugin({
-        patterns: [
-            { from: './node_modules/normalize.css/normalize.css', to: './css/normalize.css' },
-        ],
     })
 ];
 

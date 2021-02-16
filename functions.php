@@ -3,19 +3,17 @@
  * @package PizzaShop
  */
 
-if( ! defined( 'PATH_LOGO' ) ) {
-    define( 'PATH_LOGO', get_template_directory_uri() .'/assets/build/images/logo.svg' );
-}
-
-if( ! defined( 'THEME_DIR_URI' ) ) {
+if( ! defined( 'THEME_DIR_PATH' ) ) {
     define( 
-        'THEME_DIR_URI', 
-        untrailingslashit( get_template_directory_uri() )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        'THEME_DIR_PATH', 
+        untrailingslashit( get_template_directory() )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
     );
 }
 
+require_once THEME_DIR_PATH .'/inc/helpers/global.php';     //  Incluirá todas las definiciones globales para el tema
+
 function pizzashop_register_styles () { 
-    wp_enqueue_style( 'normalize', THEME_DIR_URI. '/assets/build/css/normalize.css', [], '8.0.1', 'all' );
+    wp_enqueue_style( 'main', THEME_DIR_URI. '/assets/build/css/main.css', [], filemtime( AQUILA_BUILD_CSS_DIR_PATH .'/main.css' ), 'all' );    //  Normalize se concatea a este archivo
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700;900&display=swap', [], '1.0.0' ); 
     wp_enqueue_style( 'style', get_stylesheet_uri(), [ 'normalize' ], filemtime( untrailingslashit( get_stylesheet_directory() ) .'/style.css' ), 'all' );
 }
