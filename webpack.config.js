@@ -6,7 +6,8 @@ const
     cssnano = require( 'cssnano' ), // https://cssnano.co/
     UglyfyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' ),
     DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' ),
-    CopyPlugin = require( 'copy-webpack-plugin' );
+    FileManagerPlugin = require( 'filemanager-webpack-plugin' );
+    // CopyPlugin = require( 'copy-webpack-plugin' );
 
 const Assets = require( './config/webpack/assets' );
 
@@ -62,13 +63,23 @@ const plugins = ( argv ) => [
     new CleanWebpackPlugin( {
         cleanStaleWebpackAssets: ( 'production' === argv .mode  )    //  Elimina automáticamente todos los activos de paquete web no utilizados en la reconstrucción, cuando se establece en verdadero en producción. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
     } ), 
-    new CopyPlugin({
-        patterns: Assets .map( asset => {       //  Itera todos los assets que requieran ser copiados
-            return {
-                from: path .join( __dirname, `/node_modules/${ asset }` ),
-                to: path .join( __dirname, `/assets/src/css` )
+    // new CopyPlugin({
+    //     patterns: Assets .map( asset => {       //  Itera todos los assets que requieran ser copiados
+    //         return {
+    //             from: path .join( __dirname, `/node_modules/${ asset }` ),
+    //             to: path .join( __dirname, `/assets/src/css` )
+    //         }
+    //     })
+    // }),
+    new FileManagerPlugin({
+        events: {
+            onStart: {
+                copy: [
+                    { source: 'node_modules/normalize.css/normalize.css', destination: 'assets/src/css/' }
+                ],
             }
-        })
+        },
+        runTasksInSeries: false,
     }),
     new MiniCssExtractPlugin( {
         filename: 'css/[name].css'
