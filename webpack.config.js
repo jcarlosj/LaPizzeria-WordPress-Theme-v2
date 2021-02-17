@@ -6,6 +6,7 @@ const
     cssnano = require( 'cssnano' ), // https://cssnano.co/
     UglyfyJsWebpackPlugin = require( 'uglifyjs-webpack-plugin' ),
     DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' ),
+    GoogleFontsPlugin = require( '@beyonk/google-fonts-webpack-plugin' ),
     FileManagerPlugin = require( 'filemanager-webpack-plugin' );
 
 const Assets = require( './config/webpack/assets' );
@@ -85,7 +86,23 @@ const plugins = ( argv ) => [
     new DependencyExtractionWebpackPlugin({
         injectPolyfill: true,       //  Forza que wp-polyfill se incluya en la lista de dependencias de cada punto de entrada. Esto sería lo mismo que agregar la importación '@wordpress/polyfill'; a cada punto de entrada.
         combineAssets: true         //  Crea un archivo de activos para cada punto de entrada. Cuando esta marca se establece en verdadero, toda la información sobre los activos se combina en un solo archivo assets. (Json | php) generado en el directorio de salida (Ejecute: npm run prod & npm run dev)
-    })
+    }),
+    new GoogleFontsPlugin({
+        fonts: [
+            {   
+                family: "Open Sans", 
+                formats: [ "eot", "woff", "woff2", "ttf", "svg" ],
+                variants: [ "400" ] 
+            },
+            {   
+                family: "Raleway", 
+                formats: [ "eot", "woff", "woff2", "ttf", "svg" ],
+                variants: [ "400", "700", "900" ] 
+            }
+        ],
+        path: 'fonts',
+        filename: 'fonts/fonts.css'
+    }),
 ];
 
 module .exports = ( env, argv ) => ({
