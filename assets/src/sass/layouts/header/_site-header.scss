@@ -1,0 +1,47 @@
+.site-header {
+    padding-top: 3rem;
+
+    @include mq( medium ) {
+		display: grid;
+        grid-template-columns: repeat( 3, 1fr );
+	}
+
+    .logo {
+        a {
+            display: flex;
+            justify-content: center;
+            
+            img {
+                max-width: 30rem;
+                width: 80%;
+            }
+        }
+
+        @include mq( medium ) {
+            grid-column: 2 / 3;
+        }
+
+    }
+
+    .info-site {
+        .address {
+            padding: 2rem 0;
+
+            p {
+                margin: 0;
+                text-align: center;
+
+                @include mq() {
+                    line-height: 1.5;
+                    text-align: right;
+                }
+            }
+
+        }
+
+        @include mq( medium ) {
+            grid-column: 3 / 4;
+        }
+    }
+
+}

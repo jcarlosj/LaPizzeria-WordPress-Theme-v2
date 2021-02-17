@@ -14,13 +14,13 @@
 </head>
 <body>
 
-    <div class="container file-name">
+    <div class="file-name container">
         <span>
             <?php esc_html_e( basename( __FILE__ ) ); ?>
         </span>
     </div>
 
-    <header class="site-header">
+    <header class="site-header container">
         <div class="logo">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <img src="<?php echo PATH_LOGO; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">

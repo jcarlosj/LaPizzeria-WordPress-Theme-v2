@@ -1,8 +1,12 @@
-.file-name span {
-	background-color: orange;
-	color: white;
+.file-name {
 
-	/* display: none; */
-	font-weight: bold;
-	padding: 0.4rem 0.8rem;
+	span {
+		background-color: orange;
+		color: white;
+
+		/* display: none; */
+		font-weight: bold;
+		padding: 0.4rem 0.8rem;
+	}
+
 }
