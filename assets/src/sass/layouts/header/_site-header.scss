@@ -31,7 +31,7 @@
                 margin: 0;
                 text-align: center;
 
-                @include mq() {
+                @include mq( medium ) {
                     line-height: 1.5;
                     text-align: right;
                 }

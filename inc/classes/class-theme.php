@@ -11,7 +11,10 @@ class Theme {
     use Singleton;
 
     protected function __construct() {
-        // wp_die( "THEME!"  );
+        // wp_die( "Theme!"  );
+
+        /** Carga clases */
+        Assets :: get_instance();
 
         $this -> setup_hooks();
     }
