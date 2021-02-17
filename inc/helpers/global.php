@@ -7,6 +7,13 @@
         define( 'PATH_LOGO', get_template_directory_uri() .'/assets/build/images/logo.svg' );
     }
 
+    if( ! defined( 'THEME_DIR_PATH' ) ) {
+        define( 
+            'THEME_DIR_PATH', 
+            untrailingslashit( get_template_directory() )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        );
+    }
+
     if( ! defined( 'THEME_DIR_URI' ) ) {
         define( 
             'THEME_DIR_URI', 
