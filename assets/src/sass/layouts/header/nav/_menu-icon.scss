@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+
+    @include mq( medium ) {
+		flex-direction: row-reverse;
+	}
+}
+
+.navbar-toggler {    
+    background-color: $color__green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+
+    text-align: center;
+
+    @include mq( medium ) {
+        padding: 10px 20px;
+    }
+
+    &__bar-1, 
+    &__bar-2, 
+    &__bar-3 {
+        background-color: #FFF;
+        height: 5px;
+        margin: 6px 0;
+        width: 35px;
+    
+        transition: 0.4s;
+    }
+
+}

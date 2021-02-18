@@ -1,5 +1,5 @@
 .site-header {
-    padding-top: 3rem;
+    padding: 3rem 0;
 
     @include mq( medium ) {
 		display: grid;

@@ -1,4 +1,9 @@
 /* Menú menu-header */
+
+nav.menu-header {
+   flex: 1 0 auto;
+}
+
 nav.menu-header ul {
     display: flex;
     flex-direction: column;

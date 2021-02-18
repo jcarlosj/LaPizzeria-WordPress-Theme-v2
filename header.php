@@ -39,14 +39,28 @@
 
     <div class="main-menu">
         <div class="container">
-            <?php 
-                $args = [
-                    'theme_location'    => 'pizzashop-header-menu',
-                    'container'         => 'nav',
-                    'container_id'      => 'menu',
-                    'container_class'   => 'menu menu-header'
-                ];
-                wp_nav_menu( $args );
-            ?>
+            
+            <div class="navbar">
+
+                <div class="navbar-toggler">
+                    <div class="menu menu-icon">
+                        <div class="menu-icon__bar-1"></div>
+                        <div class="menu-icon__bar-2"></div>
+                        <div class="menu-icon__bar-3"></div>
+                    </div>
+                </div>
+                
+                <?php 
+                    $args = [
+                        'theme_location'    => 'pizzashop-header-menu',
+                        'container'         => 'nav',
+                        'container_id'      => 'menu',
+                        'container_class'   => 'menu menu-header'
+                    ];
+                    wp_nav_menu( $args );
+                ?>
+
+            </div>
+            
         </div>
     </div>
