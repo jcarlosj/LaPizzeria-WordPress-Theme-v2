@@ -36,3 +36,17 @@
             </div><!-- .address -->
         </div>
     </header>
+
+    <div class="main-menu">
+        <div class="container">
+            <?php 
+                $args = [
+                    'theme_location'    => 'pizzashop-header-menu',
+                    'container'         => 'nav',
+                    'container_id'      => 'menu',
+                    'container_class'   => 'menu menu-header'
+                ];
+                wp_nav_menu( $args );
+            ?>
+        </div>
+    </div>
