@@ -27,3 +27,17 @@
             untrailingslashit( get_template_directory_uri(). '/assets/build/css' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
         );
     }
+
+    /** JavaScript */
+    if( ! defined( 'THEME_BUILD_JS_URI' ) ) {
+        define( 
+            'THEME_BUILD_JS_URI', 
+            untrailingslashit( get_template_directory_uri(). '/assets/build/js' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        );
+    }
+    if( ! defined( 'THEME_BUILD_JS_DIR_PATH' ) ) {
+        define( 
+            'THEME_BUILD_JS_DIR_PATH', 
+            untrailingslashit( get_template_directory(). '/assets/build/js' )     // WP Func: Elimina las barras inclinadas hacia adelante y hacia atrás si existen.
+        );
+    }

@@ -1,10 +1,6 @@
 .navbar {
     display: flex;
     flex-direction: column;
-
-    @include mq( medium ) {
-		flex-direction: row-reverse;
-	}
 }
 
 .navbar-toggler {    
@@ -12,6 +8,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include mq( medium ) {
+        display: none;
+    } 
 }
 
 .menu-icon {
@@ -35,5 +35,29 @@
     
         transition: 0.4s;
     }
+    
+}
 
+.change-icon {
+
+    .menu-icon__bar-1 {
+        -webkit-transform: rotate( -45deg ) translate( -9px, 6px );
+        transform: rotate( -45deg ) translate( -9px, 6px );
+    }
+    .menu-icon__bar-2 {
+        opacity: 0;
+    }
+    .menu-icon__bar-3 {
+        -webkit-transform: rotate( 45deg ) translate( -8px, -8px );
+        transform: rotate( 45deg ) translate( -8px, -8px );
+    }
+
+}
+
+.not-display {
+    display: none;
+
+    @include mq( medium ) {
+        display: flex;
+    }
 }

@@ -2,6 +2,11 @@
 
 nav.menu-header {
    flex: 1 0 auto;
+   // display: none;
+
+   // @include mq( medium ) {
+   //    display: flex;
+   // }
 }
 
 nav.menu-header ul {
