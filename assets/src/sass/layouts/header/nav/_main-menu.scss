@@ -1,54 +1,54 @@
 /* Menú menu-header */
 
 nav.menu-header {
-   flex: 1 0 auto;
-   // display: none;
+   justify-content: center;
 
-   // @include mq( medium ) {
-   //    display: flex;
-   // }
+   ul {
+      display: flex;
+      flex-direction: column;
+
+      @include mq( medium ) {
+         flex-direction: row;
+      }
+
+      li {
+         display: flex;
+         flex-direction: column;
+         position: relative;
+
+         @include mq( medium ) {
+            display: flex;
+            flex: 1 1 100%;
+            position: relative;
+         }
+
+         ul {
+            background-color: orange;
+            display: none;
+            left: -.8em;
+            position: relative;
+            top: 1em;
+            width: calc( 100% + 1.6em );
+
+            @include mq( medium ) {
+               background-color: orange;
+               display: none;
+               left: 0;
+               position: absolute;
+               top: 100%;
+            }
+         }
+
+         &:hover ul {
+            display: flex;
+            flex-direction: column;    /* Técnicamente esta linea sobra si se desea desplegar verticalmente */
+
+            @include mq( medium ) {
+               display: flex;
+               flex-direction: column;
+               width: 100%;
+            }
+         }
+      }
+   }
 }
-
-nav.menu-header ul {
-    display: flex;
-    flex-direction: column;
- }
- nav.menu-header ul li {
-    display: flex;
-    flex-direction: column;
-    position: relative;
- }
- nav.menu-header ul li ul {
-    background-color: orange;
-    display: none;
-    left: -.8em;
-    position: relative;
-    top: 1em;
-    width: calc( 100% + 1.6em );
- }
- nav.menu-header ul li:hover ul {
-    display: flex;
-    flex-direction: column;    /* Técnicamente esta linea sobra si se desea desplegar verticalmente */
- }
- @media screen and ( min-width: 768px ) {
-    nav.menu-header ul {
-       flex-direction: row;
-    }
-    nav.menu-header ul li {
-       display: flex;
-       flex: 1 1 100%;
-       position: relative;
-    }
-    nav.menu-header ul li ul {
-       background-color: orange;
-       display: none;
-       left: 0;
-       position: absolute;
-       top: 100%;
-    }
-    nav.menu-header ul li:hover ul {
-       display: flex;
-       flex-direction: column;
-       width: 100%;
-    }
- }
