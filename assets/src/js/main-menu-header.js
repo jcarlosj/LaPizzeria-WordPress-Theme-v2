@@ -31,6 +31,7 @@ window .onresize = function () {
     if( breakpointMedium < windowWidth ) {
         menuIcon .classList .remove( 'change-icon' );   
         menuHeader .classList .add( 'not-display' );   
+
         displayMenu = false;
     }
 }
