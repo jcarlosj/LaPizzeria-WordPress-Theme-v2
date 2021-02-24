@@ -28,7 +28,17 @@
         </div>
         <div class="info-site">
             <div class="social">
-                <!-- TODO: Agregar Menú Redes Sociales -->
+                <?php 
+                    $args = [
+                        'theme_location'    => 'pizzashop-social-menu',
+                        'container'         => 'nav',
+                        'container_id'      => 'menu',
+                        'container_class'   => 'menu menu-social',
+                        'link_before'       => '<span class="sr-text">',
+                        'link_after'        => '</span>'
+                    ];
+                    wp_nav_menu( $args );
+                ?>
             </div><!--  .social -->
             <div class="address">
                 <p>Avenida Siempreviva 742, Springfield</p>
