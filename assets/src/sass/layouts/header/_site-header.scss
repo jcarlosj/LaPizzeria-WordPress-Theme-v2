@@ -25,7 +25,11 @@
 
     .info-site {
         .address {
-            padding: 2rem 0;
+            padding: 0;
+
+            @include mq( medium ) {
+                padding: 2rem 0;
+            }
 
             p {
                 margin: 0;

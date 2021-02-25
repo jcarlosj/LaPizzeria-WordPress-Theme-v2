@@ -4,7 +4,7 @@
  */
 
     if( ! defined( 'PATH_LOGO' ) ) {
-        define( 'PATH_LOGO', get_template_directory_uri() .'/assets/build/images/logo.svg' );
+        define( 'PATH_LOGO', get_template_directory_uri() .'/assets/build/images/svg/logo.svg' );
     }
 
     if( ! defined( 'THEME_DIR_PATH' ) ) {

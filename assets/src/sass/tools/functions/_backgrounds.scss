@@ -1,0 +1,3 @@
+@function background_url_icons( $image ) {
+	@return url( "../images/svg/" + $image );
+}

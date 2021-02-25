@@ -36,7 +36,7 @@ const rules = [
 		]
 	},
     {
-        test: /\.(png|jpg|svg|jpeg|gif|ico)$/,
+        test: /\.(png|jpg|jpeg|gif|ico)$/,
         use: {
             loader: 'file-loader',
             options: {
@@ -46,7 +46,17 @@ const rules = [
         }
     },
     {
-		test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        test: /\.(svg)$/,
+        use: {
+            loader: 'file-loader',
+            options: {
+                name: 'images/svg/[name].[ext]',        //  Elimina [path], este asume que la ruta del punto de entrada será la misma para la salida (por eso lo eliminamos)
+                publicPath: 'production' === process .env .NODE_ENV ? '../' : '../'
+            }
+        }
+    },
+    {
+		test: /\.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
 		exclude: [ IMG, /node_modules/ ],
 		use: {
 			loader: 'file-loader',
