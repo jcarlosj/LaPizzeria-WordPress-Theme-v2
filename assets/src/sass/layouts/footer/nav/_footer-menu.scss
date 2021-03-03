@@ -1,0 +1,61 @@
+.site-footer {
+    border-top: 3px solid $color__light-gray;
+    margin-top: 3rem;
+    padding: 3rem 0;
+
+    nav.menu-footer {
+        ul {
+            
+            @include mq( medium ) {
+                display: flex;
+                justify-content: center;
+            }
+
+            li {
+                padding: 0;
+
+                a {
+                    color: $color__black;
+                    display: block;
+                    font-family: $font__headers;
+                    font-size: 1.4rem;
+                    font-weight: bold;
+                    padding: 7px;
+                    text-align: center;
+                    text-transform: uppercase;
+
+                    @include mq( medium ) {
+                        display: inline-block;
+                        text-align: initial;
+                    }
+                }
+                .separator {
+                    display: none;
+
+                    @include mq( medium ) {
+                        display: inline-block;
+                        margin: 0 2rem;
+                    }
+                }
+
+                &:last-of-type {
+                    .separator {
+                        @include mq( medium ) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .address {
+        margin-top: 2rem;
+        text-align: center;
+
+        p {
+            font-size: 1.4rem;
+            line-height: initial;
+        }
+    }
+}
