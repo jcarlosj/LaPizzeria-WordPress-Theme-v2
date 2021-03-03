@@ -25,7 +25,8 @@ class Menus {
     public function register_menus() {
         register_nav_menus([
             'pizzashop-header-menu' => esc_html__( 'Header Menu', 'pizzashop' ),
-            'pizzashop-social-menu' => esc_html__( 'Social Menu', 'pizzashop' )
+            'pizzashop-social-menu' => esc_html__( 'Social Menu', 'pizzashop' ),
+            'pizzashop-footer-menu' => esc_html__( 'Footer Menu', 'pizzashop' )
         ]);
     }
 
