@@ -31,17 +31,34 @@ nav.menu-header {
          }
 
          ul {
-            background-color: orange;
+            background-color: lighten( $color: $color__orange, $amount: 10 );
             display: none;
-            left: -.8em;
+            left: 0;
             position: relative;
-            top: 1em;
+            top: 0;
             width: calc( 100% + 1.6em );
 
             @include mq( medium ) {
-               left: 0;
                position: absolute;
                top: 100%;
+            }
+
+            li {
+               padding: 0;
+
+               &:hover {
+                  @include mq( medium ) {
+                     border: none;
+                  }
+               }
+
+               a {
+                  padding: 10px;
+
+                  @include mq( medium ) {
+                     padding: 20px;
+                  }
+               }
             }
          }
 
@@ -60,6 +77,24 @@ nav.menu-header {
                @include mq( medium ) {
                   width: 100%;
                }
+
+               li {
+                  background-color: $color__orange;
+
+                  a {
+                     color: darken( $color: $color__white, $amount: 10 );
+
+                     &:hover {
+                        background-color: lighten( $color: $color__orange, $amount: 10 );
+                        color: $color__green;   
+
+                        @include mq( medium ) {
+                           // background-color: transparent;
+                        }
+                     }
+                  }
+               }
+
             }
          }
          
