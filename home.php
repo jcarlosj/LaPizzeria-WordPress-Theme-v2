@@ -36,8 +36,43 @@
 
         <?php while ( have_posts() ) : the_post(); ?>
 
-            <h1><?php the_title(); ?></h1>
-            <?php the_content(); ?>
+            <article class="blog-entry">
+                <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail( 'specialties-landscape' ); ?>
+                </a>
+
+                <header class="entry-info">
+                    
+                    <time class="entry-date" datetime="<?php the_time( 'Y-m-d' ); ?>">
+                        <?php the_time( 'd' ); ?>
+                        <span><?php the_time( 'M' ); ?><span>
+                    </time>
+                    
+                    <h2 class="entry-title"><?php the_title(); ?></h2>
+                    
+                    <p class="entry-author">
+                        <?php _e( 'Written by: ', 'pizzashop' ); ?>
+                        <span><?php the_author(); ?></span>
+                    </p>
+
+                    <p class="entry-excerpt">
+                        <?php if( has_excerpt() ): ?>
+                            <?php echo get_the_excerpt(); ?>
+                        <?php else: ?>
+                            <?php echo wp_trim_words( get_the_content(), 30, '..' ); ?>
+                        <?php endif; ?>
+                    </p>
+
+                    <a class="btn btn-primary" href="<?php the_permalink(); ?>">
+                        <?php _e( 'Read more', 'pizzashop' ); ?>
+                    </a>
+
+                </header>
+
+                <footer></footer>
+            </article>
+
+            <?php # the_content(); ?>
             
         <?php endwhile; ?>
 
