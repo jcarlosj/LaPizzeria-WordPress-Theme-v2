@@ -14,14 +14,16 @@
         <div class="footer-menu">
 
             <?php 
-                $args = [
-                    'theme_location'    => 'pizzashop-footer-menu',
-                    'container'         => 'nav',
-                    'container_id'      => 'menu',
-                    'container_class'   => 'menu menu-footer',
-                    'after'             => '<span class="separator">|</span>',
-                ];
-                wp_nav_menu( $args );
+                if( has_nav_menu( 'pizzashop-footer-menu' ) ) :
+                    $args = [
+                        'theme_location'    => 'pizzashop-footer-menu',
+                        'container'         => 'nav',
+                        'container_id'      => 'menu',
+                        'container_class'   => 'menu menu-footer',
+                        'after'             => '<span class="separator">|</span>',
+                    ];
+                    wp_nav_menu( $args );
+                endif;
             ?>
 
             <div class="address">

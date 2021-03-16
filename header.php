@@ -29,15 +29,18 @@
         <div class="info-site">
             <div class="social">
                 <?php 
-                    $args = [
-                        'theme_location'    => 'pizzashop-social-menu',
-                        'container'         => 'nav',
-                        'container_id'      => 'menu',
-                        'container_class'   => 'menu menu-social',
-                        'link_before'       => '<span class="sr-text">',
-                        'link_after'        => '</span>'
-                    ];
-                    wp_nav_menu( $args );
+
+                    if( has_nav_menu( 'pizzashop-social-menu' ) ):
+                        $args = [
+                            'theme_location'    => 'pizzashop-social-menu',
+                            'container'         => 'nav',
+                            'container_id'      => 'menu',
+                            'container_class'   => 'menu menu-social',
+                            'link_before'       => '<span class="sr-text">',
+                            'link_after'        => '</span>'
+                        ];
+                        wp_nav_menu( $args );
+                    endif;
                 ?>
             </div><!--  .social -->
             <div class="address">
@@ -51,24 +54,28 @@
         <div class="container">
             
             <div class="navbar">
-
-                <div class="navbar-toggler">
-                    <div id="menu-icon" class="menu menu-icon">
-                        <div class="menu-icon__bar-1"></div>
-                        <div class="menu-icon__bar-2"></div>
-                        <div class="menu-icon__bar-3"></div>
-                    </div>
-                </div>
                 
-                <?php 
-                    $args = [
-                        'theme_location'    => 'pizzashop-header-menu',
-                        'container'         => 'nav',
-                        'container_id'      => 'menu',
-                        'container_class'   => 'menu menu-header not-display'
-                    ];
-                    wp_nav_menu( $args );
-                ?>
+                <?php if( has_nav_menu( 'pizzashop-header-menu' ) ): ?>
+
+                    <div class="navbar-toggler">
+                        <div id="menu-icon" class="menu menu-icon">
+                            <div class="menu-icon__bar-1"></div>
+                            <div class="menu-icon__bar-2"></div>
+                            <div class="menu-icon__bar-3"></div>
+                        </div>
+                    </div>
+                    
+                    <?php 
+                        $args = [
+                            'theme_location'    => 'pizzashop-header-menu',
+                            'container'         => 'nav',
+                            'container_id'      => 'menu',
+                            'container_class'   => 'menu menu-header not-display'
+                        ];
+                        wp_nav_menu( $args );
+                    ?>
+                
+                <?php endif; ?>
 
             </div>
             
