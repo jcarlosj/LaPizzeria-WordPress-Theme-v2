@@ -4,6 +4,7 @@
  */
 
     get_header();
+    $featured_image_url = get_the_post_thumbnail_url();
 ?>
  
 <?php while ( have_posts() ) : the_post(); ?>
@@ -16,7 +17,11 @@
 
 <header 
     class="hero"
-    style="background-image: url( <?php echo get_the_post_thumbnail_url(); ?> );"
+    <?php if( $featured_image_url) : ?>
+        style="background-image: url( <?php echo $featured_image_url; ?> );"
+    <?php else: ?>
+        
+    <?php endif; ?>
 >
     <div class="hero-content">
         <h1><?php the_title(); ?></h1>
