@@ -21,6 +21,7 @@ class Assets {
         /** Actions */
         add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
+        add_action( 'after_setup_theme', [ $this, 'register_image_support' ] );
     }
 
     public function register_styles() {
@@ -30,6 +31,10 @@ class Assets {
 
     public function register_scripts() {
         wp_enqueue_script( 'main', THEME_BUILD_JS_URI . '/main.js', [], filemtime( THEME_BUILD_JS_DIR_PATH .'/main.js' ), true );
+    }
+
+    public function register_image_support() {
+        add_theme_support( 'post-thumbnails' );             //  Agrega soporte imagen destacada en las publicaciones
     }
 
 }
