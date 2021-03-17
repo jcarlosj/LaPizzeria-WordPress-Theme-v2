@@ -31,7 +31,7 @@
     </div>
 </header>
 
-<section class="section container">
+<section class="section container sidebar">
     <main class="main-content">
 
         <?php while ( have_posts() ) : the_post(); ?>
@@ -77,6 +77,9 @@
         <?php endwhile; ?>
 
     </main>
+
+    <?php get_sidebar() ?>
+
 </section>
 
 <?php 

@@ -1,0 +1,7 @@
+.sidebar {
+    @include mq( medium ) {
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: 2fr 1fr;
+    }
+}
