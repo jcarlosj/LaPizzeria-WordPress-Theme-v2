@@ -36,7 +36,7 @@
 
         <?php while ( have_posts() ) : the_post(); ?>
 
-            <article class="blog-entry">
+            <article class="entry-blog">
                 <a href="<?php the_permalink(); ?>">
                     <?php the_post_thumbnail( 'specialties-landscape' ); ?>
                 </a>
@@ -55,6 +55,10 @@
                         <span><?php the_author(); ?></span>
                     </p>
 
+                </header>
+
+                <div class="entry-content">
+                    
                     <p class="entry-excerpt">
                         <?php if( has_excerpt() ): ?>
                             <?php echo get_the_excerpt(); ?>
@@ -67,7 +71,7 @@
                         <?php _e( 'Read more', 'pizzashop' ); ?>
                     </a>
 
-                </header>
+                </div>
 
                 <footer></footer>
             </article>
