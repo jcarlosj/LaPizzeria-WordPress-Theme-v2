@@ -37,60 +37,20 @@
         <?php while ( have_posts() ) : the_post(); ?>
 
             <article class="entry-blog">
-                <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail( 'specialties-landscape' ); ?>
-                </a>
+                
+                <?php 
+                    get_template_part( 'template-parts/entry', 'header' ); 
+                    get_template_part( 'template-parts/entry', 'content' );
+                    get_template_part( 'template-parts/entry', 'footer' ); 
+                ?>
 
-                <header class="entry-info">
-                    
-                    <time class="entry-date" datetime="<?php the_time( 'Y-m-d' ); ?>">
-                        <?php the_time( 'd' ); ?>
-                        <span><?php the_time( 'M' ); ?><span>
-                    </time>
-                    
-                    <h2 class="entry-title"><?php the_title(); ?></h2>
-                    
-                    <p class="entry-author">
-                        <?php _e( 'Written by: ', 'pizzashop' ); ?>
-                        <span><?php the_author(); ?></span>
-                    </p>
-
-                </header>
-
-                <div class="entry-content">
-                    
-                    <p class="entry-excerpt">
-                        <?php if( has_excerpt() ): ?>
-                            <?php echo get_the_excerpt(); ?>
-                        <?php else: ?>
-                            <?php echo wp_trim_words( get_the_content(), 30, '..' ); ?>
-                        <?php endif; ?>
-                    </p>
-
-                    <a class="btn btn-primary" href="<?php the_permalink(); ?>">
-                        <?php _e( 'Read more', 'pizzashop' ); ?>
-                    </a>
-
-                </div>
-
-                <footer></footer>
             </article>
-
-            <?php # the_content(); ?>
             
         <?php endwhile; ?>
 
-        <div class="paginate">
-            <?php 
-                echo paginate_links(); # Forma con numeracion ?> 
-        </div>
-
-        <div class="pagination">
-            <?php # Forma sin numeracion 
-                previous_posts_link(); 
-                next_posts_link();
-            ?>
-        </div>
+        <?php 
+            get_template_part( 'template-parts/entry', 'pagination' );
+        ?>
 
     </main>
 
