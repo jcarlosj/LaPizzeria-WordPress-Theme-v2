@@ -41,7 +41,7 @@ const rules = [
             loader: 'file-loader',
             options: {
                 name: 'images/[name].[ext]',        //  Elimina [path], este asume que la ruta del punto de entrada será la misma para la salida (por eso lo eliminamos)
-                publicPath: 'production' === process .env .NODE_ENV ? '../' : '../../'
+                publicPath: 'production' === process .env .NODE_ENV ? '../' : '../'
             }
         }
     },
