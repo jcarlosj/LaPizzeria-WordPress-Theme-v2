@@ -19,6 +19,8 @@
         get_template_part( 'template-parts/entry', 'content' ); 
     ?>
 
+    <?php comments_template(); ?>
+
 <?php endwhile; ?>
 
 <?php 

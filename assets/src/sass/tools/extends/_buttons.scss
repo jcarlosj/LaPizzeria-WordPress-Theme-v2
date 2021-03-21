@@ -7,7 +7,9 @@
         background-color: $bgcolor;
         color: $fontcolor;
 
+        border: none;
         border-radius: .5rem;
+        cursor: pointer;
         display: block;
         flex: 1;
         font-family: $font__headers;
