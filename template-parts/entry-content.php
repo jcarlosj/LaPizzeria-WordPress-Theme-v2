@@ -23,7 +23,7 @@
     </p>
 
     <a class="btn btn-primary" href="<?php the_permalink(); ?>">
-        <?e( 'Read more', 'pizzashop' ); ?>
+        <?php _e( 'Read more', 'pizzashop' ); ?>
     </a>
 
 <?php endif; ?>
