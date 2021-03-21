@@ -7,6 +7,27 @@
     h3 {
         font-weight: 700;
         text-align: center;
+
+        a { 
+            color: $color__green;
+
+            &:hover {
+                color: $color__orange;
+            }
+        }
+
+        small {
+            display: block;
+        }
+    }
+
+    a {
+        color: $color__green;
+        display: inline;
+
+        &:hover {
+            color: $color__orange;
+        }
     }
 
     .comment {
@@ -14,15 +35,6 @@
         &-form {
             p {
                 display: flex;
-
-                a {
-                    color: $color__green;
-                    display: inline;
-
-                    &:hover {
-                        color: $color__orange;
-                    }
-                }
 
                 &.logged-in-as {
                     padding: 0 1rem;
@@ -80,9 +92,41 @@
             textarea {
                 border: 1px solid $color__light-gray;
                 flex: 1;
+                padding: 2rem;
                 width: 100%;
             }
         }
 
+        &-list {
+            .comment {
+                background-color: lighten( $color: $color__light-gray, $amount: 20 );
+                margin-bottom: 2rem;
+                padding: 2rem;
+
+                cite {
+                    color: $color__red;
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+
+                &-reply-link {
+                    @extend %btn-outline-tertiary;   //  Hereda propiedades
+                }
+
+                ul.children {
+                    li {
+                        background-color: $color__white;
+                        border: none;
+                        margin-top: 2rem;
+                    }
+                }
+
+            }
+        }
+
     }
+}
+
+#cancel-comment-reply-link {
+    @extend %btn-tertiary;   //  Hereda propiedades
 }

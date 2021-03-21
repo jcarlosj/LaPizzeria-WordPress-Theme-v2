@@ -1,5 +1,4 @@
 .btn {
-    border: none;
     border-radius: .5rem;
     cursor: pointer;
     display: block;
@@ -19,9 +18,16 @@
     @each $name, $colors in $buttons {
         $bgcolor: nth( $colors, 1 );
         $fontcolor: nth( $colors, 2 );
+        $bordercolor: nth( $colors, 3 );
         
         &-#{ $name } {
             background-color: $bgcolor;
+            @if $bordercolor == '#FFFFFF' {
+                border: none;
+            }
+            @else { 
+                border: 1px solid $bordercolor;
+            }
             color: $fontcolor;
         }  
 

@@ -10,7 +10,11 @@ $color__light-gray: #C1C1C1;
 
 /** Buttons */
 $buttons: (
-    primary:   ( $color__orange, $color__white ),
-    secondary: ( $color__green, $color__white ),
-    error:     ( $color__red, $color__white )
+    // background, text, border
+    primary:   ( $color__orange, $color__white, $color__white ),
+    secondary: ( $color__green, $color__white, $color__white ),
+    tertiary:  ( $color__red, $color__white, $color__white ),
+    outline-primary:    ( $color__white, $color__orange, $color__orange ),
+    outline-secondary:  ( $color__white, $color__green, $color__green ),
+    outline-tertiary:   ( $color__white, $color__red, $color__red )
 );
