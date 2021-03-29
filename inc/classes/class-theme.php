@@ -28,7 +28,14 @@ class Theme {
     }
 
     public function setup_theme() {
+        add_action( 'after_setup_theme', [ $this, 'support_settings_for_gutenberg' ] );
+        add_action( 'after_setup_theme', [ $this, 'register_theme_color_palette' ] );
         add_action( 'after_setup_theme', [ $this, 'register_image_support' ] );
+    }
+
+    public function support_settings_for_gutenberg() {
+        //  Soporte de hoja de estilos por defecto para Gutenberg
+        add_theme_support( 'wp-block-styles' );
     }
 
     public function register_image_support() {
@@ -39,6 +46,40 @@ class Theme {
         add_image_size( 'us', 437, 291, true );                                 //  con cropping activo
         add_image_size( 'specialties-landscape', 768, 515, true );              //  con cropping activo
         add_image_size( 'specialties-portrait', 435, 526, true );               //  con cropping activo
+    }
+
+    public function register_theme_color_palette() {
+        //  Deshabilita la seleccion de colores personalizados
+        add_theme_support( 'disable-custom-colors' );
+
+        //  Agrega soporte paleta de colores del tema
+        add_theme_support( 'editor-color-palette', [
+            [
+                'name'  => __( 'Red', 'pizzashop' ),
+                'slug'  => 'red',
+                'color' => '#A61206'
+            ],
+            [
+                'name'  => __( 'Orange', 'pizzashop' ),
+                'slug'  => 'orange',
+                'color' => '#F19F30'
+            ],
+            [
+                'name'  => __( 'Green', 'pizzashop' ),
+                'slug'  => 'green',
+                'color' => '#124727'
+            ],
+            [
+                'name'  => __( 'White', 'pizzashop' ),
+                'slug'  => 'white',
+                'color' => '#FFFFFF'
+            ],
+            [
+                'name'  => __( 'Black', 'pizzashop' ),
+                'slug'  => 'black',
+                'color' => '#000000'
+            ]
+        ] );
     }
         
 }
